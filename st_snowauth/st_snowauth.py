@@ -75,8 +75,8 @@ def snowauth_session(config=None, label="Login to Snowflake"):
             st.stop()
         if "code" not in st.query_params:
             show_auth_link(config, label)
-        code = st.query_params["code"][0]
-        state = st.query_params["state"][0]
+        code = st.query_params["code"]
+        state = st.query_params["state"]
         qpcache = qparms_cache(state)
         qparms = qpcache
         qpcache = {}
