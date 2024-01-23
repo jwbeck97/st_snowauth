@@ -107,7 +107,8 @@ def snowauth_session(config=None, label="Login to Snowflake"):
             st.error(e)
             show_auth_link(config, label)
         token = ret.json()
-        st.query_params.update(qparms)
+        for k, v in qparms.items():
+            st.query_params[k] = v
         snow_configs = {
             "account": config["account"],
             "authenticator": "oauth",
